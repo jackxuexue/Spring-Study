@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>srping-01-ioc</module>
+        <module>SpringHello</module>
     </modules>
 
     <dependencies>
