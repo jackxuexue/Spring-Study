@@ -11,6 +11,7 @@
     <modules>
         <module>srping-01-ioc</module>
         <module>SpringHello</module>
+        <module>spring02IOC</module>
     </modules>
 
     <dependencies>

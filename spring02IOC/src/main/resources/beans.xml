@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        ref 为已经放入bean容器中的对象
+    -->
+    <bean id="userdaoimpl" class="com.jackxue.dao.UserDaoImpl" />
+    <bean id="mysqldaoimpl" class="com.jackxue.dao.MysqlUserDaoImpl" />
+    <bean id="usersvr" class="com.jackxue.services.UserServicesImpl" >
+        <property name="dao" ref="userdaoimpl" />
+    </bean>
+
+</beans>

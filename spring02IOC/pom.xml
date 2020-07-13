@@ -9,11 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>srping-01-ioc</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>springIoc</module>
-    </modules>
+    <artifactId>spring02IOC</artifactId>
 
 
 </project>
