@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="cat" class="com.jackxue.pojo.Cat" />
+    <bean id="dog" class="com.jackxue.pojo.Dog" />
+    <!--<bean id="dog2" class="com.jackxue.pojo.Dog" />-->
+
+    <!--根据属性名来自动装配bean，属性名是小写的 -->
+    <!--<bean id="people" class="com.jackxue.pojo.People" autowire="byName" />-->
+
+    <!--根据People属性的类型来自动装配，只能转配全局唯一的，如果有多个会报错, 例如有
+        多个dog类型
+        <bean id="dog" class="com.jackxue.pojo.Dog" />
+        <bean id="dog2" class="com.jackxue.pojo.Dog" />
+    -->
+    <bean id="people" class="com.jackxue.pojo.People" autowire="byType" />
+</beans>

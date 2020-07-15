@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring02IOC" />
+        <module name="spring03Autowired" />
         <module name="SpringHello" />
       </profile>
     </annotationProcessing>

@@ -1,16 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--&lt;!&ndash;使用index调用有参构造方法&ndash;&gt;-->
+    <!--<bean id="oracledaoimpl" class="com.jackxue.dao.OracleUserDaoImpl" >-->
+        <!--<constructor-arg index="0" value="Oracle get user!" />-->
+    <!--</bean>-->
+
+    <!--使用构造函数的参数来指定  type要写全类名，不推荐使用-->
+    <!--<bean id="oracledaoimpl" class="com.jackxue.dao.OracleUserDaoImpl">-->
+        <!--<constructor-arg type="java.lang.String" value="Oracle get user"/>-->
+    <!--</bean>-->
+
+    <!--使用参数名来构造-->
+    <bean id="oracledaoimpl" class="com.jackxue.dao.OracleUserDaoImpl" c:str="Oracle get User">
+        <constructor-arg name="str" value="Oracle get user" />
+    </bean>
 
     <!--
         ref 为已经放入bean容器中的对象
     -->
-    <bean id="userdaoimpl" class="com.jackxue.dao.UserDaoImpl" />
+    <bean id="userdaoimpl" class="com.jackxue.dao.UserDaoImpl" scope="singleton" />
     <bean id="mysqldaoimpl" class="com.jackxue.dao.MysqlUserDaoImpl" />
     <bean id="usersvr" class="com.jackxue.services.UserServicesImpl" >
-        <property name="dao" ref="userdaoimpl" />
+        <!--<property name="dao" ref="userdaoimpl" />-->
+        <property name="dao" ref="oracledaoimpl" />
+    </bean>
+
+    <bean id="addr" class="com.jackxue.pojo.MyAddress" >
+        <property name="address" value="宝安" />
+    </bean>
+    <bean id="student" class="com.jackxue.pojo.Student"  p:name="JackXue" p:addr-ref="addr">
+        <!--<property name="name" value="JackXue" />-->
+        <!--<property name="addr" ref="addr" />-->
+        <property name="books" >
+            <array >
+                <value>Java从入门到精通</value>
+                <value>C++</value>
+            </array>
+        </property>
+        <property name="hobbys" >
+            <list>
+                <value>编程</value>
+                <value>游戏</value>
+            </list>
+        </property>
+
+        <property name="card" >
+            <map>
+                <entry key="身份证" value="44182719941102" />
+                <entry key="银行卡" value="123123213" />
+            </map>
+        </property>
+        <property name="games" >
+            <set>
+                <value>LOL</value>
+                <value>COC</value>
+            </set>
+        </property>
+
+        <property name="wife">
+            <null></null>
+        </property>
+
+        <property name="info" >
+            <props>
+                <prop key="driver" >jdbc</prop>
+                <prop key="url" >mysql://localhost:3306/srping</prop>
+                <prop key="user" >root</prop>
+                <prop key="password" >123456</prop>
+            </props>
+        </property>
     </bean>
 
 </beans>
