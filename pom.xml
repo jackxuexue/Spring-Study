@@ -13,6 +13,8 @@
         <module>SpringHello</module>
         <module>spring02IOC</module>
         <module>spring03Autowired</module>
+        <module>spring04Annotation</module>
+        <module>spring05appconfig</module>
     </modules>
 
     <dependencies>

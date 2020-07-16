@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring02IOC" />
         <module name="spring03Autowired" />
+        <module name="spring04Annotation" />
+        <module name="spring05appconfig" />
         <module name="SpringHello" />
       </profile>
     </annotationProcessing>
