@@ -13,6 +13,8 @@
         <module name="spring05appconfig" />
         <module name="spring06Proxy" />
         <module name="spring07Aop" />
+        <module name="spring08Mybatis" />
+        <module name="spring09Transaction" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
