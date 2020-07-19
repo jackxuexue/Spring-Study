@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="userservice" class="com.jackxue.services.UserServicesImpl" />
+    <bean id="log" class="com.jackxue.services.Log" />
+
+    <!--<context:annotation-config/>-->
+    <!--<context:component-scan base-package="com.jackxue" />-->
+    <!--第一种方式-->
+    <!--<aop:config>-->
+        <!--&lt;!&ndash;execution 表达式，表名从哪里切入&ndash;&gt;-->
+        <!--<aop:pointcut id="point1" expression="execution(* com.jackxue.services.UserServicesImpl.*(..))" />-->
+        <!--<aop:advisor advice-ref="log" pointcut-ref="point1" />-->
+    <!--</aop:config>-->
+
+    <!--第二种方法-->
+    <!--<bean id="diy" class="com.jackxue.diy.DiyLog" />-->
+    <!--<aop:config >-->
+        <!--<aop:aspect ref="diy">-->
+            <!--<aop:pointcut id="point" expression="execution(* com.jackxue.services.UserServicesImpl.*(..))" />-->
+            <!--<aop:before pointcut-ref="point" method="before" />-->
+            <!--<aop:after method="after" pointcut-ref="point"/>-->
+            <!--<aop:after-returning method="afterreturn" pointcut-ref="point" />-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+    <!--第三种方式:注解实现-->
+    <bean id="annotationPointcut" class="com.jackxue.diy.AnnotationLog"/>
+    <aop:aspectj-autoproxy/>
+</beans>
